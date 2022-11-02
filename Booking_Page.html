@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Corona Air</title>
+    <link rel="shortcut icon" type="image/png" href="images/coronaairTrans.png">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css">
+    <link rel="stylesheet" href="styles/booking-page.css">
+    <link rel="stylesheet" href="styles/shared.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+  </head>
+  <body>
+      <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--transparent">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Booking Page</span>
+            <!--Align icon to the right-->
+            <div class="mdl-layout-spacer"></div>
+                <a class="mdl-button mdl-js-button" href="Help_Page.html">
+                    <i id = "icon" class="material-icons" style = "color:black;font-size:30px">help_outline</i></a>
+                </a>
+      </div>
+        </header>
+
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Navigation Drawer</span>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html">Home</a>
+            <a class="mdl-navigation__link" href="Booking_Page.html">Booking</a>
+            <a class="mdl-navigation__link" href="Fleet_Info.html">Fleet Information</a>
+            <a class="mdl-navigation__link" href="Schedule_Log.html">Schedule Log</a>
+            <a class="mdl-navigation__link" href="Help_Page.html">Help</a>
+          </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-typography--text-center">
+                <a href="index.html">
+                <img src="images/coronaairTrans.png" alt="coronaLogo" id="coronaLogo">
+              </a>
+              <h3> ROUTE SELECTION </h3>
+            </div>
+
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+              </div>
+
+              <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+
+                  <div align = "left">
+                    <a class="map-text" style="display: inline-block">MAP</a><br>
+                    <span id="instruction">Click on the origin marker on the map to begin.</span>
+                    <br>
+                  </div>
+                  <br>
+
+                    <!--Map-->
+              			<div  align = "center" id="map" ></div>
+                    <br>
+
+                    <!--create a legend for marker color-->
+                    <div class='map-overlay' id='legend'></div>
+
+                    <div align="center">
+                      <!-- Accent-colored raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="setRouteButton" onclick="finaliseRoute()">
+                      SET DESTINATION
+                    </button>
+                    </div>
+
+              </div>
+
+              <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+              </div>
+          </div>
+
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+                </div>
+                <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+
+                  <div id=flightSummary>
+                    <div id = "flightsDisplay">
+
+        <!--CARD5-->          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title">
+                                    <h2 class="mdl-card__title-text">TICKET 5</h2>
+                                </div>
+
+        <!--Supporting text-->    <div style="max-height:230px;" class="mdl-card__supporting-text">
+                                    <!-- Slider with Starting Value -->
+                                    <p style="width:300px">
+                                        <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
+                                        </p>
+
+                                        <div class="airline-status">
+                                        <h5>AIRLINE:</h5>
+                                        <h5>PLANE ID:</h5>
+                                        <h5>STATUS:</h5>
+                                        </div>
+
+                                        <div class="date-duration">
+                                        <h6 style="display: inline-block; padding: 0 40px 0 40px;">Date:</h6>
+                                        <h6 style="display: inline-block; padding: 0 40px 0 40px;">Duration:</h6>
+                                        </div>
+
+                                        <div class="text-information">
+                                        <h5 style="display: inline-block; padding: 0 40px 0 40px;">DEPARTURE:</h5>
+                                        <h5 style="display: inline-block; padding: 0 40px 0 40px;">ARRIVAL:</h5>
+                                        </div>
+
+                                        <div class="misc-information">
+                                        <h5>DEPARTURE WEATHER:</h5>
+                                        <h5>ARRIVAL WEATHER:</h5>
+                                        <h5>DISTANCE:</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="dropdownmenu">
+                                    <select name="" id="" class="dropdown" >
+                                        <option class="default" value="" selected="selected">Waypoint selection:</option>
+                                        <option value="">Waypoint 1</option>
+                                        <option value="">Waypoint 2</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="mdl-card__actions mdl-card--border">
+                                    <div class="select-button">
+                                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                        SELECT
+                                        </a>
+                                    </div>
+                                    </div>
+
+
+                                    <div class="mdl-card__menu">
+                                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+
+                                    </button>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <h3>BOOKING SUMMARY</h3>
+                                   <table class="fixed" style="width:100%">
+                                      <tr>
+                                         <td id="plane-cell" rowspan="4"><img src="images/airplane-vector.png" alt="Airplane image" id="plane">
+                                            <table class="plane-table">
+                                              <tr>
+                                                <td class="title">AIRLINE</td>
+                                                <td>American Airlines</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="title">ID</td>
+                                                <td>ABD-2890</td>
+                                              </tr>
+                                              <tr>
+                                                <td class="title">TYPE</td>
+                                                <td>Boeing 777</td>
+                                              </tr>
+                                            </table>
+                                         </td>
+                                         <!-- Origin details -->
+                                         <td width="50px" class="icons-col"><i class="material-icons md-48">location_on</i></td>
+                                         <td  class="journey"><b>Origin</b></td>
+                                         <td><b>03:00 2020-04-20 KUL, Malaysia <i class="material-icons">wb_sunny</i></b></td>
+                                      </tr>
+                                      <!-- waypoint details -->
+                                      <tr>
+                                         <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                         <td  class="journey">Waypoint 1</td>
+                                         <td></td>
+                                      </tr>
+                                      <tr>
+                                         <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                         <td  class="journey">Waypoint 2</td>
+                                         <td></td>
+                                      </tr>
+                                      <tr>
+                                         <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                         <td  class="journey">Waypoint 3</td>
+                                         <td></td>
+                                      </tr>
+                                      <tr>
+                                        <!-- weather cell -->
+                                        <td id="weather-cell" rowspan="2">
+                                          <table width="100%" class="weather-table">
+                                            <tr>
+                                              <td class="temperature"><br>27 C</td>
+                                              <td class="temperature"><br>8 C</td>
+                                            </tr>
+                                            <tr>
+                                              <td>KUL</td>
+                                              <td>MEL</td>
+                                            </tr>
+                                            <tr>
+                                              <td>sunny</td>
+                                              <td>wet</td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                        <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                        <td  class="journey">Waypoint 4</td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                        <td  class="journey">Waypoint 5</td>
+                                        <td></td>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td width="50px" class="icons-col"><i class="material-icons md-48">more_vert</i></td>
+                                        <td  class="journey">Waypoint 6</td>
+                                        <td></td>
+                                      </tr>
+                                      <!-- destination details -->
+                                      <tr>
+                                        <td></td>
+                                         <td width="50px" class="icons-col"><i class="material-icons md-48">location_on</i></td>
+                                         <td  class="journey"><b>Destination</b></td>
+                                         <td ><b>23:15 2020-04-20 MEL, Australia <i class="material-icons">wb_cloudy</i></b></td>
+                                      </tr>
+
+                                      <tr>
+                                        <td></td>
+                                        <td align="center" colspan="3" class="duration">Journey Duration  4 hours</td>
+                                      </tr>
+
+                                   </table>
+
+
+                                   <hr>
+
+                                   <div align="center">
+                                     <!-- Accent-colored raised button with ripple -->
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="confirmButton">
+                                      CONFIRM
+                                    </button>
+                                   </div>
+
+                        </div>
+
+
+
+                        <!-- this div here allows the header to span the whole bottom of the page -->
+                        </div>
+
+                      <br>
+                  </div>
+                 </div>
+
+              <footer class="mdl-mini-footer">
+              <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Corona Air</div>
+                <div id = "copyright" class="mdl-logo">© 2020 Monash University. All Rights Reserved. The material in this communication may be subject to copyright under the section 113P of the Copyright Act 1968. Any further reproduction or communication of this material by you may be the subject of copyright protection under the Act.</div>
+                <ul class="mdl-mini-footer__link-list">
+                  <li><a href="#">Help</a></li>
+                  <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+              </div>
+            </footer>
+
+        </main>
+        <script src="scripts/Shared.js"></script>
+        <script type="text/javascript" src="scripts/Booking_Page.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Corona Air</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="images/coronaairTrans.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css">
+    <link rel="stylesheet" href="styles/schedule-log.css">
+    <link rel="stylesheet" type="text/css" href="styles/shared.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+  </head>
+  <body>
+    <!-- Uses a transparent header that draws on top of the layout's background -->
+    <style>
+      .demo-layout-transparent {
+        background: url('images/transparent.png') center / cover;
+      }
+      .demo-layout-transparent .mdl-layout__header,
+      .demo-layout-transparent .mdl-layout__drawer-button {
+        /* This background is dark, so we set text to white. Use 87% black instead if
+        your background is light. */
+        color: black;
+      }
+    </style>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Schedule Log</span>
+          <!---Align icon to the right--->
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-button mdl-js-button" href = "Help_Page.html">
+          <i id = "icon" class="material-icons" style = "color:black;font-size:30px">help_outline</i>
+          </a>
+        </div>
+      </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Navigation Drawer</span>
+      <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html">Home</a>
+            <a class="mdl-navigation__link" href="Booking_Page.html">Booking</a>
+            <a class="mdl-navigation__link" href="Fleet_Info.html">Fleet Information</a>
+            <a class="mdl-navigation__link" href="Schedule_Log.html">Schedule Log</a>
+            <a class="mdl-navigation__link" href="Help_Page.html">Help</a>
+      </nav>
+    </div>
+
+    <main class="mdl-layout__content">
+        <div class="mdl-typography--text-center">
+            <a href="index.html">
+                <img src="images/coronaairTrans.png" alt="coronaLogo" id="coronaLogo">
+            </a>
+            <h3>COMPLETED BOOKINGS</h3>
+        </div>
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet"></div>
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet" id="mapPan">
+
+          <!--Map-->
+          <div  align = "center" id="map" ></div>
+          <br>
+          <div class='map-overlay' id='legend'></div>
+
+        </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+        </div>
+      </div>
+
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet"></div>
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+        <div id="cards">
+          <table>
+              <!--New Row with 1 cell holding Current Card-->
+            <tr>
+              <td>
+                <!--Current Card-->
+                <div class = "wide-card mdl-card mdl-shadow--2dp">
+                  <div class = "mdl-card__title" id="current-card">
+                     <h2 class = "mdl-card__title-text">Current Flight</h2>
+                  </div>
+                  <div class = "mdl-card__supporting-text">
+                    <table >
+                      <tr>
+                        <td style="width:40%">
+                          <p >
+                            <h6 class="locationTitle">DEPARTURE AIRPORT</h6>
+                            <h4 class="airportTitle"><b>KUL, Malaysia</b></h4>
+                            37 C always sunny
+                            <h5 class="waypoint">SIN, Sinagpore</h5>
+                            <h5 class="waypoint">SIN, Sinagpore</h5>
+                            <h5 class="waypoint">SIN, Sinagpore</h5>
+                            <h5 class="waypoint">SIN, Sinagpore</h5>
+                            <h5 class="waypoint">SIN, Sinagpore</h5>
+                            <h6 class="locationTitle">ARRIVAL AIRPORT</h6>
+                            <h4 class="airportTitle"><b>MEL, Melbourne</b></h4>
+                            6 C chilly-morning
+                          </p>
+
+                        </td>
+                        <td class="nonLocations" style="width:40%">
+                          <h6>DEPARTURE TIME <br><b>06:05 hrs 02/09/2020</b></h6>
+                          <h6>ARRIVAL TIME<br><b>06:05 hrs 02/09/2020</b></h6>
+                          <h6>DISTANCE: <br><b>12367 km<b></h6>
+                          <h6>DURATION: <br><b>12 hours 45 minutes</b></h6>
+                        </td>
+                        <!-- <td style="text-align:right"></td> -->
+                        <td class="nonLocations">
+                          <div align = "center">
+                            <img src="images/airplane-vector.png" alt="Airplane image" id="plane"><br>
+                          </div>
+                          <table class="plane-table">
+                            <tr>
+                              <td class="plane-cell"><h6 class = "title plane-info" style = "color: lightgreen">AIRLINE </h6></td>
+                              <td class="plane-cell"><h6 class="plane-info">Qantas</h6></td>
+                            </tr>
+                            <tr class="plane-cell">
+                              <td class="plane-cell"><h6 class = "title plane-info" style = "color: lightgreen">ID </h6></td>
+                              <td class="plane-cell"><h6 class="plane-info">31209750</h6></td>
+                            </tr>
+                            <tr class="plane-cell">
+                              <td class="plane-cell"><h6 class = "title plane-info" style = "color: lightgreen">TYPE </h6></td>
+                              <td class="plane-cell"><h6 class="plane-info">Boeing 777</h6</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class = "mdl-card__menu">
+                    <a id="link" href="#mapPan">
+                        <button class = "mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" title="View pathway" id="view_cur" style="color:white" onclick ="displayRoute(${i},0)">
+                        <i class = "material-icons">gps_fixed</i></button>
+                    </a>
+                    <button class = "mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="delete_past" style="color:#CD5C5C" onclick ="deleteFlight(${i},2)" disabled>
+                      <i class = "material-icons">delete_outline</i></button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr><td><br><br></td></tr>
+            <!--New Row with 1 cell holding Future Card-->
+            <tr>
+              <td>
+                <!--Future Card-->
+                <div class = "wide-card mdl-card mdl-shadow--2dp">
+                  <div class = "mdl-card__title" id="future-card">
+                    <h2 class = "mdl-card__title-text">Future Flights</h2>
+                  </div>
+                  <div class = "mdl-card__supporting-text">
+                    <table>
+                      <tr>
+                        <td style="width:40%">
+                          <p style="width:300px">
+                          <input class="mdl-slider mdl-js-slider" type="range" id="s2" min="0" max="10" value="4" step="2">
+                          </p>
+                          <h5>AIRLINE:</h5>
+                          <h5>STATUS:</h5>
+                        </td>
+                        <td style="width:40%">
+                          <h6>DATE:</h6>
+                          <h6>DEPARTURE:</h6>
+                          <h6>ARRIVAL:</h6>
+                          <h6>DISTANCE:</h6>
+                        </td>
+                        <td style="text-align:right"></td>
+                        <td>
+                          <img src="images/airplane-vector.png" alt="Airplane image" id="plane"><br>
+                          <h7>PLANE ID: <br></h7>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class = "mdl-card__menu">
+                   <button class = "mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="delete_fut" onclick ="deleteFlight(userRoutesList.futFlights, 1)">
+                   <i class = "material-icons">delete_outline</i></button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr><td><br><br></td></tr>
+            <!--New Row with 1 cell holding Past Card-->
+            <tr>
+              <td>
+                <!--Past Card-->
+                <div class = "wide-card mdl-card mdl-shadow--2dp">
+                  <div class = "mdl-card__title" id="past-card">
+                     <h2 class = "mdl-card__title-text">Past Flights</h2>
+                  </div>
+                  <div class = "mdl-card__supporting-text">
+                    <table>
+                      <tr>
+                        <td style="width:40%">
+                          <p style="width:300px">
+                          <input class="mdl-slider mdl-js-slider" type="range" id="s3" min="0" max="10" value="4" step="2">
+                          </p>
+                          <h5>AIRLINE:</h5>
+                          <h5>STATUS:</h5>
+                        </td>
+                        <td style="width:40%">
+                          <h6>DATE:</h6>
+                          <h6>DEPARTURE:</h6>
+                          <h6>ARRIVAL:</h6>
+                          <h6>DISTANCE:</h6>
+                        </td>
+                        <td style="text-align:right"></td>
+                        <td>
+                          <img src="images/airplane-vector.png" alt="Airplane image" id="plane"><br>
+                          <h7>PLANE ID: <br></h7>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class = "mdl-card__menu">
+                    <button class = "mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id=delete_past style="color:white" onclick ="deleteFlight(userRoutesList.pastFlights, 2)">
+                      <i class = "material-icons">delete_outline</i></button>
+                  </div>
+                </div>
+                </td>
+              </tr>
+
+
+          </table>
+          </div>
+
+        </div>
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet"></div>
+        </div>
+        <!-- Footer bottom of the page -->
+        <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Corona Air</div>
+          <div id = "copyright" class="mdl-logo">© 2020 Monash University. All Rights Reserved. The material in this communication may be subject to copyright under the section 113P of the Copyright Act 1968. Any further reproduction or communication of this material by you may be the subject of copyright protection under the Act.</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy & Terms</a></li>
+          </ul>
+        </div>
+        </footer>
+      </main>
+      <script src="scripts/Shared.js"></script>
+      <script src="scripts/Schedule_Log.js"></script>
+  </body>
+</html>

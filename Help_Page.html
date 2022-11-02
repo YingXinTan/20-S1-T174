@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Corona Air</title>
+    <link rel="shortcut icon" type="image/png" href="images/coronaairTrans.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" type "text/css" href="styles/help-page.css">
+    <link rel="stylesheet" type "text/css" href="styles/shared.css">
+  </head>
+
+  <body>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+
+        <!-- Title -->
+        <span class="mdl-layout-title">Help Page</span>
+
+<!--Align icon to the right--->
+        <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button">
+          <i id = "icon" class="material-icons" style = "color:black;font-size:30px">help_outline</i></a>
+        </button>
+
+      </div>
+    </header>
+
+<!--Navigation Drawer--->
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Navigation Drawer</span>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html">Home</a>
+            <a class="mdl-navigation__link" href="Booking_Page.html">Booking</a>
+            <a class="mdl-navigation__link" href="Fleet_Info.html">Fleet Information</a>
+            <a class="mdl-navigation__link" href="Schedule_Log.html">Schedule Log</a>
+            <a class="mdl-navigation__link" href="Help_Page.html">Help</a>
+          </nav>
+        </div>
+        <main class="mdl-layout__content">
+
+<!--Align Big Heading to the centre--->
+          <div class="mdl-typography--text-center">
+            <a href="index.html">
+              <img src="images/coronaairTrans.png" alt="coronaLogo" id="coronaLogo">
+            </a>
+            <h3>FAQ</h3>
+          </div>
+
+<!--Grid Size--->
+          <div class = "mdl-grid">
+            <div class = "mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+              <!--Empty col-->
+            </div>
+
+<!--Column 2--->
+            <div class = "mdl-cell mdl-cell--8-col mdl-cell--4-col-tablet">
+<!--Create Tables for FAQ--->
+              <div class="column">
+
+<!--Card 1--->    <div class = "row">
+                    <div class = "card">
+
+                      <span style="text-decoration:underline"><h6>What features can I use on this app?</h6></span>
+                      <p id = "help-text">The app allows you to book flights.<br>Features include a reminder
+                        for upcoming flights, an interactive map that allows you to visualise flight routes,
+                        allows you to choose<br> waypoints for your flight.
+                        The app also includes a schedule log that displays past, future and nearest flight bookings.
+                        <br>You can also delete future flights.
+                      </p>
+                    </div>
+                  </div>
+                  <br>
+
+<!--Card 2--->    <div class = "row">
+                    <div class = "card">
+
+                      <span style="text-decoration:underline"><h6>How do I book a flight?</h6></span>
+                      <p id = "help-text">In the booking page (main page), you can input your travel date, time and
+                        origin airport. <br>After clicking the confirm button,
+                         you will be brought to the fleet information page that contains
+                         an interactive map and information on all available flights. <br>
+                         In this page, you will select available airplanes, waypoints
+                         and destination on respective markers using the interactive map.
+                        <br>After selection, click the "CONFIRM" button down below.
+                        <br>Your selected flight will be booked.
+                      </p>
+                    </div>
+                  </div>
+                  <br>
+
+<!--Card 3--->    <div class = "row">
+                    <div class = "card">
+
+                      <span style="text-decoration:underline"><h6>How does the interactive map work?</h6></span>
+                      <p id = "help-text">The map allows users to visualise flight route when booking a flight.
+                        <br> Steps to book flight on map.
+                        <br> 1. Click on the origin marker (grey) to start booking process.
+                        <br> 2. Airport markers with available airplanes will show, click to select.
+                        <br> 3. Waypoint markers within selected airplane's range will show, click to select.
+                        <br> 4. If no waypoint is needed or desired destination is in range, user has to click "SET DESTINATION" button.
+                        <br> 5. Destination markers will appear on map. Click to select.
+                      </p>
+
+                    </div>
+                  </div>
+                  <br>
+<!--Card 4--->    <div class = "row">
+                    <div class = "card">
+
+                      <span style="text-decoration:underline"><h6>Where can I view all my flight bookings?</h6></span>
+                      <p id = "help-text">Click on the navigation drawer on the top left of the page,
+                        look for the "Schedule log" and click on it. <br>
+                        This page will display all booked flights. <br>
+                        You are able to view and delete flights here.
+                      </p>
+                    </div>
+                  </div>
+                  <br>
+
+<!--Card 5--->    <div class = "row">
+                   <div class = "card">
+
+                     <span style="text-decoration:underline"><h6>How can I view my next scheduled flights?</h6></span>
+                     <p id = "help-text">A reminder section can be found at the bottom of the main page.
+                       <br> Details of the next upcoming flight are to be shown in this section.
+                     </p>
+                   </div>
+                 </div>
+                 <br>
+
+<!--Card 6--->    <div class = "row">
+                   <div class = "card">
+
+                     <span style="text-decoration:underline"><h6>Where can I view information about the planes available?</h6></span>
+                     <p id = "help-text">Click on the navigation drawer on the top left of the page,
+                       look for the "Fleet Information" and click on it. <br>
+                       All the plane summary can be found here. User can view the summary according to the preferred sorting.<br>
+                     </p>
+                   </div>
+                 </div>
+                 <br>
+               </div> <!--closing div for column-->
+
+              <div class = "mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet">
+                <!--Empty col-->
+              </div>
+            </div> <!--closing div for middle grid-->
+          </div> <!-- closing div for grid-->
+
+<!--Mini Footer---> <footer class="mdl-mini-footer">
+                      <div class="mdl-mini-footer__left-section">
+                        <div class="mdl-logo">Corona Air</div>
+                        <div id = "copyright" class="mdl-logo">© 2020 Monash University. All Rights Reserved. The material in this communication may be subject to copyright under the section 113P of the Copyright Act 1968. Any further reproduction or communication of this material by you may be the subject of copyright protection under the Act.</div>
+                        <ul class="mdl-mini-footer__link-list">
+                          <li><a href="#">Help</a></li>
+                          <li><a href="#">Privacy & Terms</a></li>
+                        </ul>
+                      </div>
+                    </footer>
+                  </main>
+
+    <script src="scripts/Shared.js"></script>
+  </body>
+</html>
