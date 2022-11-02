@@ -1,0 +1,220 @@
+.airline-status{
+    position: relative;
+    
+}
+
+.default{
+    display: none;
+}
+
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: #ec407a;
+  height: 60px;
+  background: #78909c center / cover;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.demo-layout-transparent .mdl-layout .mdl-js-layout{
+  background: url('images/transparent.png') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: black;
+}
+
+.dropdown:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.dropdown:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.date-duration{
+    position: relative;
+    left: 500px;
+    bottom: 145px;
+}
+
+#legend {
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    height: 70px;
+    margin-bottom: 40px;
+    width: 130px;
+  }
+
+  .legend-key {
+      display: inline-block;
+      border-radius: 20%;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+
+#map{
+  height:650px;
+  width: 103%;
+  right: 12px;
+  border: 1px solid grey;
+  float:center;
+  bottom: 17px;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 200px;
+    left: 355px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    border-radius: 3px;
+  }
+
+.mapImg{
+  width: 100%;
+  height: 100%;
+}
+
+.map-text{
+    float: left;
+    padding-left: 20px;
+    position: relative;
+    bottom: 20px;
+    font-size: 24px;
+    color:black;
+}
+
+.misc-information{
+    position: relative;
+    left: 540px;
+    bottom: 180px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.selectbutton{
+    position: relative;
+    width: 70px;
+    height: 30px;
+    bottom: 190px;
+    left: 750px;
+    font-size: 12px;
+    border-radius: 5px;
+
+}
+
+.selectbutton:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.select-button{
+    position: relative;
+    left: 800px;
+}
+
+.sort-menu{
+  line-height: 0;
+  position: relative;
+  bottom: 20px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  border-color: #b0bec5;
+  background-color: #b0bec5;
+  font-size: 17px;
+}
+
+.mdl-layout-title{
+  font-size: 20px
+}
+
+table.fixed td {
+  overflow: hidden;
+  font-size: 25px;
+}
+
+td.iconsCol{
+  width: 48px;
+  vertical-align: middle;
+}
+
+.journey{
+  text-align: left;
+  width: 175px;
+}
+
+.material-icons.md-48{
+  font-size: 48px;
+  color: #e91e63;
+}
+
+#plane{
+  height: 175px;
+  width: 175px;
+}
+
+#plane-cell{
+  align: right;
+}
+
+table.plane-table td{
+  font-size: 20px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.text-information{
+    width: 400px;
+    position: relative;
+    left: 500px;
+    bottom: 170px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.duration{
+  font-size: 22px !important;
+}
+
+table.weather-table td{
+  font-size: 20px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+
+}
+
+table.weather-table td.temperature{
+  font-weight: bold;
+  font-size: 40px;
+  padding-bottom: 15px;
+}
+
+.originTempCurr{
+  position: static;
+}
+
+.destTempCurr{
+  position: static;
+}
