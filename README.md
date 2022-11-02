@@ -3,7 +3,6 @@
 ENG1003
 
 ## Collaboraters:
-...
 
 ### Member #1
 Name: Chris Tan Ying Xin
