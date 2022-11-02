@@ -1,7 +1,7 @@
 # 20-S1-T174
 ## Campus: Monash University Malaysia
 ENG1003<br>
-...
+Develop a webapp for desktop and mobile. It's a flight booking app tailored to the client's requirement.
 
 
 ## Collaboraters:
